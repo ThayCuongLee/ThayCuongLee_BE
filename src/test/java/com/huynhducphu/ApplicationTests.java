@@ -1,13 +1,13 @@
-package com.huynhducphu.ThayCuongLee_BE;
+package com.huynhducphu;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ThayCuongLeeBeApplicationTests {
+class ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

@@ -1,10 +1,8 @@
 package com.huynhducphu.model;
 
 import com.huynhducphu.config.snowflake.SnowflakeGenerated;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.huynhducphu.model.base.BaseEntity;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -19,16 +17,19 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @SnowflakeGenerated
     Long id;
 
-    @Column(name = "username", length = 50, unique = true)
+    @Column(name = "username", length = 50, unique = true, nullable = false)
     String username;
 
-    @Column(name = "hashed_password", length = 255)
+    @Column(name = "hashed_password", length = 255, nullable = false)
     String hashedPassword;
+
+    @OneToOne(mappedBy = "user")
+    UserProfile userProfile;
 
 }

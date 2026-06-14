@@ -38,7 +38,7 @@ public class JwtBuilder {
                 .builder()
                 .issuedAt(now)
                 .expiresAt(expiredAt)
-                .subject(user.getId().toString())
+                .subject(user.getUsername())
                 .build();
 
         return jwtEncoder

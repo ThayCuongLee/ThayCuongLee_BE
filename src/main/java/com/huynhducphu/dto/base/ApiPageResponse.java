@@ -29,6 +29,7 @@ public class ApiPageResponse<T> {
     public ApiPageResponse(Page<T> page) {
         this.data = page.stream().toList();
         this.page = page.getNumber() + 1;
+        this.size = page.getSize();
         this.totalElements = page.getTotalElements();
         this.totalPages = page.getTotalPages();
     }

@@ -17,4 +17,12 @@ import lombok.experimental.FieldDefaults;
 public class ApiResponse<T> {
     T data;
     String errorMessage;
+
+    public ApiResponse(T data) {
+        this.data = data;
+    }
+
+    public ApiResponse(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 }

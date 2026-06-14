@@ -13,6 +13,10 @@ spring:
   flyway:
     enabled: true
     baseline-version: 1
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
 
 app:
   #  đừng xem lịch sử commit nha hihi <3

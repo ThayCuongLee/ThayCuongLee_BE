@@ -1,6 +1,5 @@
 package com.huynhducphu.repository;
 
-import com.huynhducphu.model.User;
 import com.huynhducphu.model.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

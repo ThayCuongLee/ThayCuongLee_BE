@@ -23,9 +23,9 @@ public class SecurityConfig {
 
     JwtDecoder jwtDecoder;
     static String[] WHITELIST = {
-            "/login",
-            "/logout",
-            "/refresh"
+            "/auth/login",
+            "/auth/logout",
+            "/auth/refresh"
     };
 
 

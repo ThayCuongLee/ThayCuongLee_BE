@@ -21,3 +21,7 @@ spring:
 app:
   #  đừng xem lịch sử commit nha hihi <3
   jwt-secret-key: ${APP_JWT_SECRET_KEY}
+  access-token-duration: ${APP_ACCESS_TOKEN_DURATION}
+  refresh-token-duration: ${APP_REFRESH_TOKEN_DURATION}
+  cookie-secure-enable: ${APP_COOKIE_SECURE_ENABLE}
+  cookie-same-site: ${APP_COOKIE_SAME_SITE}

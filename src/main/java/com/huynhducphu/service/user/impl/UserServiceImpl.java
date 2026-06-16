@@ -4,6 +4,7 @@ import com.huynhducphu.dto.request.CreateUserRequest;
 import com.huynhducphu.dto.response.UserSummaryResponse;
 import com.huynhducphu.model.User;
 import com.huynhducphu.model.UserProfile;
+import com.huynhducphu.model.constant.Role;
 import com.huynhducphu.repository.UserProfileRepository;
 import com.huynhducphu.repository.UserRepository;
 import com.huynhducphu.service.user.UserService;
@@ -43,7 +44,8 @@ public class UserServiceImpl implements UserService {
                 null,
                 body.userName(),
                 passwordEncoder.encode(body.password()),
-                null
+                null,
+                Role.MEMBER
         );
         User savedUser = userRepository.save(user);
 

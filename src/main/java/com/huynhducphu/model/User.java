@@ -2,6 +2,7 @@ package com.huynhducphu.model;
 
 import com.huynhducphu.config.snowflake.SnowflakeGenerated;
 import com.huynhducphu.model.base.BaseEntity;
+import com.huynhducphu.model.constant.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -31,5 +32,8 @@ public class User extends BaseEntity {
 
     @OneToOne(mappedBy = "user")
     UserProfile userProfile;
+
+    @Enumerated(value = EnumType.STRING)
+    Role role;
 
 }

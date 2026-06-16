@@ -10,6 +10,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@Log4j2
 public class AdminAccountBootstrap implements ApplicationRunner {
 
     UserRepository userRepository;
@@ -43,8 +45,13 @@ public class AdminAccountBootstrap implements ApplicationRunner {
     @Transactional
     public void run(ApplicationArguments args) {
 
+
+        log.info("Looking for Admin account");
         var runFlag = userRepository.existsByUsername(bootstrapAdminUsername);
-        if (runFlag) return;
+        if (runFlag) {
+            log.info("Admin account found, skip bootstrapping admin account");
+            return;
+        } else log.warn("Admin account not found, bootstrapping admin account");
 
         var saveUser = userRepository.save(new User(
                 null,
@@ -58,6 +65,6 @@ public class AdminAccountBootstrap implements ApplicationRunner {
         userProfile.setFullName("Administrator");
         userProfile.setUser(saveUser);
         userProfileRepository.save(userProfile);
-
+        log.info("Admin account bootstrapped successfully");
     }
 }
